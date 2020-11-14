@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Courses extends Model
 {
     public function comments () {
-        return $this->hasMany('App\Comments');
+        return $this->hasMany('App\Comments' , 'courses_id');
     }
 
     public function users () {

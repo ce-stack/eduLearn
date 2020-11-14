@@ -50,7 +50,7 @@ class CoursesController extends Controller
         });
 
         $newsAll = Cache::remember('newsAll', now()->addSeconds(300), function () {
-            return News::all()->random(3);
+            return News::all()->random(1);
         });
 
         $coursesCount = Cache::remember('coursesCount', now()->addSeconds(300), function () {

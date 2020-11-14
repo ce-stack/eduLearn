@@ -22,26 +22,12 @@ class Comments extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User' , 'user_id');
     }
 
-    // public function scopeLatest(Builder $query) {
-    //     return $query->orderBy(static::CREATED_AT , 'desc');
-    // }
+    public function course()
+    {
+        return $this->belongsTo('App\Courses' , 'id');
+    }
 
-    // public function scopeMostCommented(Builder $query) {
-    //     return $query->withCount('comments')->orderBy('comments_count' , 'desc');
-    // }
-
-    // public static function boot()
-    // {
-    //     parent::boot();
-
-    //     static::creating(function (Comments $comment) {
-    //         Cache::tags(['blog-post'])->forget("news-{$comment->news_id}");
-            
-    //     });
-
-    //     // static::addGlobalScope(new LatestScope);
-    // }
 }

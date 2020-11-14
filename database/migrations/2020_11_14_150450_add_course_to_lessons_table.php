@@ -15,9 +15,9 @@ class AddCourseToLessonsTable extends Migration
     {
         Schema::table('lessons', function (Blueprint $table) {
             if (env('DB_CONNECTION') === 'sqlite_testing') {
-                $table->unsignedInteger('course_id')->default(0);
+                $table->unsignedBigInteger('course_id')->default(0);
             } else {
-                $table->unsignedInteger('course_id');
+                $table->unsignedBigInteger('course_id');
             }
 
             $table->foreign('course_id')
