@@ -31,6 +31,8 @@ class CreateCoursesTable extends Migration
             $table->string('level');
             $table->string('category');
             $table->integer('seats');
+            $table->string('video');
+            $table->text('image');
             $table->timestamps();
         });
     }

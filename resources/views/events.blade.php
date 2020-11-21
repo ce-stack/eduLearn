@@ -1,5 +1,5 @@
-@extends('layouts.search')
-		
+@extends('layouts.header')
+
 @section('content')
 		<!-- Breadcrumbs Start -->
 		<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
@@ -35,11 +35,11 @@
 	                        <div class="row rs-vertical-middle">
 	                        	<div class="col-md-6">
 	                        	    <div class="event-img">
-	                        	        <img src="{{ asset('images/events/4.jpg') }}" alt="events Images" />
+                                        <img class="" src="{{asset('images/events')}}/{{ $event->image }}"  alt="" />
 									<a class="image-link" href="{{ route('events-details' , ['id' => $event->id]) }}" title="University Tour 2018">
                                             <i class="fa fa-link"></i>
                                         </a>
-	                        	    </div>                        		
+	                        	    </div>
 	                        	</div>
 	                        	<div class="col-md-6">
 	                    	        <div class="event-content">
@@ -53,7 +53,7 @@
 	                    	        			<span>{{ $event->time }}</span>
 	                    	        		</div>
 	                    	        	</div>
-	                    	        	<h3 class="event-title"><a href="events-details.html">{{ $event->name }}</h3>
+	                    	        	<h3 class="event-title"><a href="{{ route('events-details' , ['id' => $event->id]) }}">{{ $event->name }}</h3>
                     	        		<div class="event-location">
                     	        			<i class="fa fa-map-marker"></i>
                     	        			<span>{{ $event->place }}</span>
@@ -63,11 +63,11 @@
 												{{ $event->description }}
 	                    	        		</p>
 	                    	        	</div>
-	                    	        </div>                    		
+	                    	        </div>
 	                        	</div>
-	                        </div>                    		
+	                        </div>
                     	</div>
-					</div>					
+					</div>
 					@endforeach
 
                 </div>
@@ -79,7 +79,7 @@
         <div id="rs-branches" class="rs-branches sec-color pt-100 pb-70">
             <div class="container">
                 <div class="sec-title mb-70 text-center">
-                    <h2>OUR BRANCHES</h2>      
+                    <h2>OUR BRANCHES</h2>
                 	<p>Considering desire as primary motivation for the generatio.</p>
                 </div>
 				<div class="row">
@@ -139,5 +139,5 @@
 			</div>
 		</div>
         <!-- Branches End -->
-				
+
      @endsection

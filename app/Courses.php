@@ -13,7 +13,7 @@ class Courses extends Model
     public function users () {
         return $this->belongsToMany('App\User' , 'user_course')->withTimestamps();
     }
-    
+
     public function lessons () {
         return $this->hasMany('App\Lesson');
     }

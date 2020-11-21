@@ -1,8 +1,8 @@
-@extends('layouts.search')
+@extends('layouts.header')
 
 @section('content')
-	
-		
+
+
 		<!-- Breadcrumbs Start -->
 		<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
 		    <div class="breadcrumbs-inner">
@@ -22,14 +22,14 @@
 		    </div>
 		</div>
 		<!-- Breadcrumbs End -->
-		
+
 		<!-- Team Single Start -->
 		<div class="rs-team-single pt-100">
 			<div class="container">
 				<div class="row team">
 				    <div class="col-lg-4 col-md-12">
 				        <div class="team-photo mobile-mb-40">
-				            <img src="{{ asset('images/teachers/team-single.jpg') }}" alt="Team1">
+				            <img class="" src="{{asset('images/teachers')}}/{{ $teacher->image }}"  alt="" />
 				            <div class="team-icons">
 				                <a href="#" title="facebook">
 				                    <i class="fa fa-facebook"></i>
@@ -99,7 +99,7 @@
         <div id="rs-team-2" class="rs-team-2 pt-70 pb-70">
 			<div class="container">
 				<div class="sec-title-2 mb-50">
-                    <h2>REALATED TEACHERS</h2>      
+                    <h2>REALATED TEACHERS</h2>
                 	<p>Fusce sem dolor, interdum in fficitur at, faucibus nec lorem.</p>
                 </div>
 				<div class="row">
@@ -118,7 +118,7 @@
 		                    	<h3 class="name">Alex Hilfisher</h3>
 		                    	<span class="designation">Science</span>
 		                    </div>
-		                </div>						
+		                </div>
 					</div>
 					<div class="col-lg-3 col-md-6">
 		                <div class="team-item">
@@ -135,7 +135,7 @@
 		                    	<h3 class="name">Naila Naime</h3>
 		                    	<span class="designation">Business Studies</span>
 		                    </div>
-		                </div>						
+		                </div>
 					</div>
 					<div class="col-lg-3 col-md-6">
 		                <div class="team-item">
@@ -152,7 +152,7 @@
 		                    	<h3 class="name">Shoykot Hassan</h3>
 		                    	<span class="designation">Arts</span>
 		                    </div>
-		                </div>						
+		                </div>
 					</div>
 					<div class="col-lg-3 col-md-6">
 		                <div class="team-item">
@@ -169,12 +169,12 @@
 		                    	<h3 class="name">Eyamin Hossain</h3>
 		                    	<span class="designation">Diploma</span>
 		                    </div>
-		                </div>						
+		                </div>
 					</div>
 			    </div>
 			</div>
         </div>
         <!-- Team End -->
-				
-       
+
+
 @endsection

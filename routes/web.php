@@ -19,7 +19,7 @@ Route::resource('/', 'CoursesController');
 
 Route::get('/about' , 'AboutController@index')->name('about');
 
- 
+
 
  Route::get('/courses' , 'CoursesController@justCourses')->name('courses');
  Route::post('/courses' , 'CoursesController@search');
@@ -27,21 +27,22 @@ Route::get('/about' , 'AboutController@index')->name('about');
  Route::get('/course-details/{id}' , 'CoursesController@show')->name('course-details');
 
  Route::post('/course-details/{id}' , 'CoursesController@search');
- Route::get('/user', 'CoursesController@subs')->name('addUser');
+ Route::get('/users', 'CoursesController@subs')->name('addUser');
   Route::get('/course-no-filter' , 'CoursesController@justCourses')->name('course-no-filter');
 Route::post('/user.store{course}', 'UserCourseController')->name('user.store.store');
-  
-// Route::get('/profile', 'CoursesController@subs')->name('courses.addUser');
+
 Route::get('/user/{id}' , 'UserController@profile')->name('user');
 
 
- 
+
   Route::get('/events' , 'EventsController@index')->name('events');
   Route::get('/events-details/{id}' , 'EventsController@show')->name('events-details');
  Route::post('/events-details/{id}' , 'EventsController@search');
  Route::post('/events' , 'EventsController@search')->name('events');
  Route::get('/events-no-filter' , 'EventsController@index')->name('events-no-filter');
  Route::post('/events-no-filter' , 'EventsController@search');
+ Route::get('/user', 'EventsController@subs')->name('addUserEvent');
+
 
   Route::get('/teachers' , 'TeachersController@index')->name('teachers');
  Route::POST('/teachers' , 'TeachersController@search');
@@ -52,16 +53,14 @@ Route::get('/user/{id}' , 'UserController@profile')->name('user');
 
   Route::get('/blog' , 'NewsController@index')->name('blog');
   Route::get('/blog-details/{id}' , 'NewsController@show')->name('blog-details');
-//  Route::get('/' , function () {
-//    $comments = News::all();
-//    return view('/welcome',compact($comments));
-//  });
+
  Route::post('/blog-details/{id}' , 'NewsController@search');
  Route::post('/blog' , 'NewsController@search');
  Route::get('/blog-no-filter' , 'NewsController@index')->name('blog-no-filter');
  Route::post('/blog-no-filter' , 'NewsController@search');
 Route::post('comments.store/{news}' , 'NewsCommentController')->name('comments.store.store');
-// c
+
+
 
 Auth::routes();
 

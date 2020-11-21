@@ -24,6 +24,7 @@ class CreateTeachersTable extends Migration
             $table->integer('reading');
             $table->integer('writing');
             $table->integer('speaking');
+            $table->text('image');
             $table->timestamps();
         });
     }

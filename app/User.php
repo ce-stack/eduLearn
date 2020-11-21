@@ -45,13 +45,11 @@ class User extends Authenticatable
     // }
 
     public function events () {
-        return $this->belongsToMany('App\Events');
+        return $this->belongsToMany('App\Events', 'user_event')->withTimestamps();
     }
 
 
-    public function news () {
-        return $this->hasMany('App\news');
-    }
+
 
     public function courses () {
         return $this->belongsToMany('App\Courses' , 'user_course')->withTimestamps();
@@ -62,5 +60,5 @@ class User extends Authenticatable
         return $this->hasMany('App\Comments' , 'user_id');
       }
 
-   
+
 }

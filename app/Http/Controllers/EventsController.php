@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Events;
+use App\Mail\EventSubs;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class EventsController extends Controller
 {
@@ -51,73 +56,38 @@ class EventsController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
 
+        $user = new User();
+        $user = Auth::user()->id;
+        $userSubsEvent = DB::select(DB::raw("select * from user_event where user_id = '$user' AND events_id = '$id' "));
         $events = Cache::remember('event', now()->addSeconds(10), function () use ($id) {
             return Events::findOrFail($id);
         });
-        return view('events-details', ['event' => $events]);
+        return view('events-details', ['event' => $events , 'userSubsEvent' => $userSubsEvent]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function subs(Request $request, Events $event)
     {
-        //
-    }
+        $event = Events::find($request->input('event_id'));
+        $user = new User();
+        $user = Auth::user()->id;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $user_event = DB::table('user_event')
+            ->where('user_id', '=', Auth::user()->id)
+            ->where('events_id', '=', $event->id)
+            ->first();
+        if (is_null($user_event)) {
+            $event->users()->attach($user);
+            Mail::to($event->users)->queue(
+                new EventSubs($event)
+            );
+            $user = User::findOrFail($user);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+            return redirect('')->with('success' , 'you booked a event check your email');
+        } else {
+            return abort(403, 'you alrady in');
+        }
     }
 }

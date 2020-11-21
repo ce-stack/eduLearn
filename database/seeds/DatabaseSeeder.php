@@ -14,14 +14,14 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserSeeder::class);
 
         $this->call([
-            UsersTableSeeder::class,  
+            UsersTableSeeder::class,
             EventsTableSeeder::class,
             CoursesTableSeeder::class,
             TeachersTableSeeder::class,
             UserCourseSeeder::class,
-            CommentsTableSeeder::class,
-            NewsTableSeeder::class,
-            AboutSeeder::class,
+
+
+         //   AboutSeeder::class,
             UsersTableSeeder::class,
             LessonTableSeeder::class,
             CourseLessonTableSeeder::class

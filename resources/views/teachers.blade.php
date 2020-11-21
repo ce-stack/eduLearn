@@ -1,9 +1,9 @@
-@extends('layouts.search')
+@extends('layouts.header')
 
 
 
 @section('content')
-	
+
 
 		<!-- Breadcrumbs Start -->
 		<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
@@ -35,15 +35,15 @@
 		<!-- Team Start -->
         <div id="rs-team-2" class="rs-team-2 team-page sec-spacer">
 			<div class="container">
-                
+
 				<div class="row grid">
-					
+
 
 					@foreach ($teachers as $teacher)
 					<div class="col-lg-3 col-md-6 col-xs-6 grid-item filter1">
 		                <div class="team-item">
 		                    <div class="team-img">
-		                        <a href="#"><img src="{{ asset('images/teachers/1.jpg') }}" alt="" /></a>
+		                        <img class="" src="{{asset('images/teachers')}}/{{ $teacher->image }}"  alt="" />
 		                        <div class="social-icon">
 		                        	<a href="#"><i class="fa fa-facebook"></i></a>
 		                        	<a href="#"><i class="fa fa-twitter"></i></a>
@@ -55,15 +55,15 @@
 								<a href="{{ route('teachers-single' , ['id'=>$teacher->id]) }} "><h3 class="name">{{  $teacher->name   }}</h3></a>
 		                    	<span class="designation">{{ $teacher->position }}</span>
 		                    </div>
-		                </div>						
+		                </div>
 					</div>
 					@endforeach
 
-					
+
 			    </div>
-			    
+
 			</div>
         </div>
         <!-- Team End -->
-				
+
 		@endsection

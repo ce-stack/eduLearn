@@ -4,7 +4,7 @@
 *
 * -----------------------------------------------------------------------------
 *
-* Template : Edulearn | Responsive Education HTML5 Template 
+* Template : Edulearn | Responsive Education HTML5 Template
 * Author : rs-theme
 * Author URI : http://www.rstheme.com/
 *
@@ -15,7 +15,7 @@
 ---------------------------------------------------------
 01. General CSS
 02. Global Class
-03. Header Section 
+03. Header Section
 04. Sticky Menu
 05. Slider Section
 06. Breadcrumbs
@@ -42,13 +42,13 @@
 27. Blog Pages
 28. Blog Details
 29. Shop Page Start Here
-30. Shop Single Page Start Here 
+30. Shop Single Page Start Here
 31. Check Out css Start Here
 32. Shipping Area Start Here
 32. Contact Page Section Start Here
 33. Rs Gallery
 34. ScrollUp
-35. 404 Page Area Start Here 
+35. 404 Page Area Start Here
 36. Preloader css
 37. Rs Footer
 
@@ -57,7 +57,7 @@
 *
 * -----------------------------------------------------------------------------
 *
-* Template : RS-Construction - Construction HTML5 Template 
+* Template : RS-Construction - Construction HTML5 Template
 * Author : rs-theme
 * Author URI : http://www.rstheme.com/
 *
@@ -506,7 +506,7 @@ ul {
   color: #ffffff;
 }
 .sec-spacer {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 .sec-color {
   background-color: #f9f9f9;
@@ -1085,7 +1085,7 @@ ul {
   padding-bottom: 0 !important;
 }
 /* ------------------------------------
-    03. Header Section  
+    03. Header Section
 ---------------------------------------*/
 .rs-toolbar {
   padding: 4px 0 5px;
@@ -6851,7 +6851,7 @@ ul {
   margin-top: 0;
 }
 /* ------------------------------------
-    28 .Blog Details 
+    28 .Blog Details
 ---------------------------------------*/
 .single-blog-details .single-image {
   margin-bottom: 25px;
@@ -7200,7 +7200,7 @@ ul {
   color: #ffffff;
 }
 /* ------------------------------------
-    29. Shop Page Start Here 
+    29. Shop Page Start Here
 ---------------------------------------*/
 .shop-page-area.single-product-page {
   padding: 100px 0 0;
@@ -7407,7 +7407,7 @@ ul {
   display: block;
 }
 /* ------------------------------------
-    30.Shop Single Page Start Here 
+    30.Shop Single Page Start Here
 ---------------------------------------*/
 .shop-single-page-area .shop-single-btm-page-area {
   padding-bottom: 74px;
@@ -8186,7 +8186,7 @@ ul {
   color: rgba(255, 255, 255, 0.7);
 }
 /* ------------------------------------
-    35.404 Page Area Start Here 
+    35.404 Page Area Start Here
 ---------------------------------------*/
 .error-page-area {
   text-align: center;
