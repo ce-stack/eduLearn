@@ -44,21 +44,21 @@ class User extends Authenticatable
     //     return $this->hasMany('App\Courses');
     // }
 
-    public function events () {
+    public function events()
+    {
         return $this->belongsToMany('App\Events', 'user_event')->withTimestamps();
     }
 
 
 
 
-    public function courses () {
-        return $this->belongsToMany('App\Courses' , 'user_course')->withTimestamps();
+    public function courses()
+    {
+        return $this->belongsToMany('App\Courses', 'user_course')->withTimestamps();
     }
 
     public function comments()
-      {
-        return $this->hasMany('App\Comments' , 'user_id');
-      }
-
-
+    {
+        return $this->hasMany('App\Comments', 'user_id');
+    }
 }

@@ -37,8 +37,7 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        if ( session('success'))
-        {
+        if (session('success')) {
             toast(session('success'), 'success');
         }
         $courses = Cache::remember('courses', now()->addSeconds(5), function () {
@@ -52,14 +51,6 @@ class CoursesController extends Controller
         $teachers = Cache::remember('teachers', now()->addSeconds(300), function () {
             return Teachers::all();
         });
-
-        // $news = Cache::remember('news', now()->addSeconds(300), function () {
-        //     return News::all()->random(1);
-        // });
-
-        // $newsAll = Cache::remember('newsAll', now()->addSeconds(300), function () {
-        //     return News::all()->random(1);
-        // });
 
         $coursesCount = Cache::remember('coursesCount', now()->addSeconds(300), function () {
             return Courses::count();
@@ -75,11 +66,6 @@ class CoursesController extends Controller
             return User::count();
         });
 
-        // $users = Cache::remember('users', now()->addSeconds(0), function () {
-        //     return User::whereHas('comments')->with(['comments' => function ($query) {
-        //         return $query->orderBy('id', 'desc')->limit(1);
-        //     }])->inRandomOrder()->limit(3)->get();
-        // });
 
         return view(
             '/.index',
@@ -101,7 +87,6 @@ class CoursesController extends Controller
         $courses = Cache::remember('courses', now()->addSeconds(5), function () {
             return Courses::latest()->withCount('users')->get();
         });
-        //return view('courses-details' , ['courses' => $courses]);
     }
 
     public function justCourses()
@@ -182,7 +167,7 @@ class CoursesController extends Controller
             );
             $user = User::findOrFail($user);
 
-            return redirect('')->with('success' , 'you subscribed to course check your email');
+            return redirect('')->with('success', 'you subscribed to course check your email');
         } else {
             return abort(403, 'you alrady in');
         }
@@ -195,6 +180,4 @@ class CoursesController extends Controller
         dd($profile);
         return view('user', ['profile' => $profile]);
     }
-
-
 }

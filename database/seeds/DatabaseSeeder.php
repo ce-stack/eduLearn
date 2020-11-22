@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -19,12 +20,7 @@ class DatabaseSeeder extends Seeder
             CoursesTableSeeder::class,
             TeachersTableSeeder::class,
             UserCourseSeeder::class,
-
-
-         //   AboutSeeder::class,
             UsersTableSeeder::class,
-            LessonTableSeeder::class,
-            CourseLessonTableSeeder::class
         ]);
     }
 }

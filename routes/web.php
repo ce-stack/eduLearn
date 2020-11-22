@@ -17,33 +17,32 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/', 'CoursesController');
 
-Route::get('/about' , 'AboutController@index')->name('about');
-
-
-
+//courses routes
  Route::get('/courses' , 'CoursesController@justCourses')->name('courses');
  Route::post('/courses' , 'CoursesController@search');
  Route::post('/course-no-filter' , 'CoursesController@search');
  Route::get('/course-details/{id}' , 'CoursesController@show')->name('course-details');
-
  Route::post('/course-details/{id}' , 'CoursesController@search');
- Route::get('/users', 'CoursesController@subs')->name('addUser');
-  Route::get('/course-no-filter' , 'CoursesController@justCourses')->name('course-no-filter');
+ Route::get('/course-no-filter' , 'CoursesController@justCourses')->name('course-no-filter');
+
+
+//users routes
+Route::get('/users', 'CoursesController@subs')->name('addUser');
 Route::post('/user.store{course}', 'UserCourseController')->name('user.store.store');
-
 Route::get('/user/{id}' , 'UserController@profile')->name('user');
+Route::get('/user', 'EventsController@subs')->name('addUserEvent');
 
 
-
-  Route::get('/events' , 'EventsController@index')->name('events');
-  Route::get('/events-details/{id}' , 'EventsController@show')->name('events-details');
+// events routes
+Route::get('/events' , 'EventsController@index')->name('events');
+Route::get('/events-details/{id}' , 'EventsController@show')->name('events-details');
  Route::post('/events-details/{id}' , 'EventsController@search');
  Route::post('/events' , 'EventsController@search')->name('events');
  Route::get('/events-no-filter' , 'EventsController@index')->name('events-no-filter');
  Route::post('/events-no-filter' , 'EventsController@search');
- Route::get('/user', 'EventsController@subs')->name('addUserEvent');
 
 
+//teachers routes
   Route::get('/teachers' , 'TeachersController@index')->name('teachers');
  Route::POST('/teachers' , 'TeachersController@search');
  Route::POST('/teachers-no-filter' , 'TeachersController@search');
@@ -51,17 +50,8 @@ Route::get('/user/{id}' , 'UserController@profile')->name('user');
  Route::get('/teachers-no-filter' , 'TeachersController@index')->name('teachers-no-filter');
  Route::post('/teachers-single/{id}' , 'TeachersController@search');
 
-  Route::get('/blog' , 'NewsController@index')->name('blog');
-  Route::get('/blog-details/{id}' , 'NewsController@show')->name('blog-details');
-
- Route::post('/blog-details/{id}' , 'NewsController@search');
- Route::post('/blog' , 'NewsController@search');
- Route::get('/blog-no-filter' , 'NewsController@index')->name('blog-no-filter');
- Route::post('/blog-no-filter' , 'NewsController@search');
-Route::post('comments.store/{news}' , 'NewsCommentController')->name('comments.store.store');
 
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
